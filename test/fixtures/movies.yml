@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  year: 1
+  awards: MyString
+  comics: MyString
+  comics_link: MyString
+  character: one
+
+two:
+  name: MyString
+  year: 1
+  awards: MyString
+  comics: MyString
+  comics_link: MyString
+  character: two

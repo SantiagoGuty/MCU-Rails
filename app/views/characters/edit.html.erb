@@ -1,0 +1,47 @@
+<h1>Edit Character</h1>
+<%= form_with(model: @character, local: true, multipart: true) do |form| %>
+  <% if @character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+      <ul>
+        <% @character.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </p>
+  <p>
+    <%= form.label :origin %>
+    <%= form.text_field :origin %>
+  </p>
+  <p>
+    <%= form.label :actor %>
+    <%= form.text_field :actor %>
+  </p>
+  <p>
+    <%= form.label :actor_link %>
+    <%= form.text_field :actor_link %>
+  </p>
+  <p>
+    <%= form.label :comics_first_apparition %>
+    <%= form.text_field :comics_first_apparition %>
+  </p>
+  <p>
+    <%= form.label :profile_image %>
+    <%= form.file_field :profile_image %>
+  </p>
+  <p>
+    <%= form.label :action_image %>
+    <%= form.file_field :action_image %>
+  </p>
+  <%= form.submit 'Update Character' %>
+<% end %>

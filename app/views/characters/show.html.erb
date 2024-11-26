@@ -1,0 +1,30 @@
+
+<div style="text-align: center;">
+  <%= image_tag @character.profile_image, class: "centered-image", alt: @character.name if @character.profile_image.attached? %>
+</div>
+
+<div style="text-align: center;">
+  <h1><%= @character.name %></h1>
+</div>
+
+
+<p><%= @character.description %></p>
+<p>Origin: <%= @character.origin %></p>
+<p>Actor: <%= link_to @character.actor, @character.actor_link %></p>
+<p>First Comics Appearance: <%= @character.comics_first_apparition %></p>
+
+<%= image_tag @character.action_image if @character.action_image.attached? %>
+
+<h2>Movies</h2>
+<%= link_to 'Add Movie', new_character_movie_path(@character), class: 'btn btn-primary' %>
+<ul>
+  <% @character.movies.each do |movie| %>
+    <li>
+      <%= link_to movie.name, character_movie_path(@character, movie), class: 'btn btn-link' %>
+    </li>
+  <% end %>
+</ul>
+
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to 'Back to Characters', characters_path, class: 'btn btn-secondary' %>
+</div>

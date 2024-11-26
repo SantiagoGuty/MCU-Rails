@@ -1,0 +1,24 @@
+<%= form_with(model: [@character, @movie], local: true) do |form| %>
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </p>
+    <p>
+      <%= form.label :year %>
+      <%= form.number_field :year %>
+    </p>
+    <p>
+      <%= form.label :awards %>
+      <%= form.text_field :awards %>
+    </p>
+    <p>
+      <%= form.label :comics %>
+      <%= form.text_field :comics %>
+    </p>
+    <p>
+      <%= form.label :comics_link %>
+      <%= form.text_field :comics_link %>
+    </p>
+    <%= form.submit %>
+  <% end %>
+  

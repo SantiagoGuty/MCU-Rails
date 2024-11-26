@@ -1,0 +1,9 @@
+<h1><%= @movie.name %></h1>
+<p><strong>Year:</strong> <%= @movie.year %></p>
+<p><strong>Awards:</strong> <%= @movie.awards %></p>
+<p><strong>Comics:</strong> <%= @movie.comics %></p>
+<p><strong>Comics Link:</strong> <%= link_to 'View Comics', @movie.comics_link, target: '_blank' if @movie.comics_link.present? %></p>
+
+<div style="margin-top: 20px;">
+  <%= link_to 'Back to Character', character_path(@character), class: 'btn btn-secondary' %>
+</div>

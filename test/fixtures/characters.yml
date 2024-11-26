@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  origin: MyString
+  actor: MyString
+  actor_link: MyString
+  comics_first_apparition: MyString
+
+two:
+  name: MyString
+  description: MyString
+  origin: MyString
+  actor: MyString
+  actor_link: MyString
+  comics_first_apparition: MyString
