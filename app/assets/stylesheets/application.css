@@ -1,83 +1,196 @@
-/*
- *= require_self
- *= require_tree .
- */
+/* Application CSS 
 
- .centered-image {
-    display: block;
-    margin: 0 auto;
-    width: 200px; /* Standard width */
-    height: 200px; /* Standard height */
-    object-fit: cover; /* Ensures the image fits without distortion */
-    border-radius: 50%; /* Optional: Makes the image circular */
-  }
-  
+*= require_self
+*= require_tree 
+*/
+
+/* Self and Tree */
+
+
+/* Root Variables for Glow Effect */
+:root {
+  --x: 0;
+  --y: 0;
+  --xp: 0;
+  --yp: 0;
+  --hue: calc(0 + (var(--xp) * 500));
+  --size: 100px;
+  --glow: radial-gradient(
+    50% 50% at center,
+    hsl(var(--hue) 80% 85%),
+    hsl(var(--hue) 80% 70%),
+    transparent
+  );
+}
+
+/* General Body Styling */
+body {
+  font-family: "SF Pro Text", sans-serif;
+  background: #000; /* Black background */
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Character Grid Layout */
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+  gap: 20px; /* Spacing between items */
+  margin: 20px auto; /* Center the grid on the page */
+  padding: 0;
+  list-style-type: none;
+  max-width: 1200px; /* Restrict maximum width */
+}
+
+
+
+.character {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: 150px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+.character img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.character:hover img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.character-name {
+  font-family: "Russo One", sans-serif;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px 0;
+  opacity: 0; /* Hidden by default */
+  transform: translateY(100%); /* Slide down initially */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.character-profile {
+  text-align: center;
+  padding: 50px;
+  background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center;
+  background-size: cover;
+  height: 400px; /* Restrict height */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  display: flex; /* Optional: Center child elements */
+  justify-content: center;
+  align-items: center;
+}
+
+.character-profile img {
+  width: 250px; /* Ensure width is applied to the image */
+  height: 300px; /* Ensure height is applied to the image */
+  border-radius: 50%; /* Rounded corners for the image */
+  object-fit: cover; /* Ensures the image fits properly */
+  display: inline-block; /* Centering adjustments */
+}
+
+
+.character:hover .character-name {
+  opacity: 1; /* Visible on hover */
+  transform: translateY(0); /* Slide up into view */
+}
+
+
+.btn-warning {
+  color: white;
+  background-color: orange;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.btn-warning:hover {
+  background-color: darkorange;
+}
+
+/* Notifications */
+.notice {
+  color: green;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.alert {
+  color: red;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .character-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 8 items per row */
-    gap: 20px; /* Spacing between items */
-    margin: 20px auto;
-    padding: 0;
-    list-style-type: none;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
   }
-  
-  .character-item {
-    text-align: center;
-    margin: auto;
-  }
-  
-  .character-item img {
-    border-radius: 10px; /* Optional: Add rounded corners */
-    transition: transform 0.3s; /* Optional: Add hover effect */
-  }
-  
-  .character-item img:hover {
-    transform: scale(1.05); /* Optional: Slight zoom on hover */
-  }
-  
-  .character-actions {
-    margin-top: 10px;
-  }
-  
-  .btn-warning {
-    color: white;
-    background-color: orange;
-    padding: 5px 10px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 5px;
-  }
-  
-  .btn-warning:hover {
-    background-color: darkorange;
-  }
-
-  .notice {
-    color: green;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-  }
-  
-  .alert {
-    color: red;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-  }
+}
 
 @media (max-width: 768px) {
   .character-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row on smaller screens */
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
   }
 }
 
 @media (max-width: 480px) {
   .character-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per row on very small screens */
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
   }
+}
+
+
+body.characters-index {
+  background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+
+/* Centering and Styling for the Add Character Icon */
+.add-character-container {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.add-character-icon {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0.8; /* Slightly transparent by default */
+  cursor: pointer;
+}
+
+/* Hover Animation */
+.add-character-icon:hover {
+  transform: scale(1.2) rotate(360deg); /* Zoom and spin animation */
+  opacity: 1; /* Fully opaque on hover */
+}
+
+
+.russo-one-regular {
+  font-family: "Russo One", sans-serif;
+  font-weight: 400; /* Normal weight */
+  font-style: normal; /* Normal style */
 }

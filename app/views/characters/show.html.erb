@@ -1,30 +1,46 @@
 
-<div style="text-align: center;">
-  <%= image_tag @character.profile_image, class: "centered-image", alt: @character.name if @character.profile_image.attached? %>
-</div>
-
-<div style="text-align: center;">
-  <h1><%= @character.name %></h1>
+<div class="character-profile" style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; height: 300px; text-align: center; padding: 50px;">
+  <%= image_tag(@character.profile_image, class: "centered-image", alt: @character.name) if @character.profile_image.attached? %>
 </div>
 
 
-<p><%= @character.description %></p>
-<p>Origin: <%= @character.origin %></p>
-<p>Actor: <%= link_to @character.actor, @character.actor_link %></p>
-<p>First Comics Appearance: <%= @character.comics_first_apparition %></p>
+<div style="text-align: center;">
+  <h1 style="font-size: 3em; font-weight: bold;"><%= @character.name %></h1>
+  <i><%= @character.phrase %></i>
+</div>
 
-<%= image_tag @character.action_image if @character.action_image.attached? %>
 
-<h2>Movies</h2>
-<%= link_to 'Add Movie', new_character_movie_path(@character), class: 'btn btn-primary' %>
+<div style="padding: 50px">
+  <h3><%= @character.description %></h3>
+  <h3>Origin: <%= @character.origin %></h3>
+
+
+  <h3>Actor: <%= link_to @character.actor, @character.actor_link %></h3>
+  <h3>First Comics Appearance: <%= @character.comics_first_apparition %></h3>
+
+  <h2>Movies</h2>
+<%= link_to 'Add Movie', new_character_movie_path(@character) %>
 <ul>
   <% @character.movies.each do |movie| %>
     <li>
-      <%= link_to movie.name, character_movie_path(@character, movie), class: 'btn btn-link' %>
+      <%= link_to movie.name, character_movie_path(@character, movie) %>
+      <% if movie.image.attached? %>
+        <%= image_tag url_for(movie.image), alt: movie.name, size: "150x250" %>
+      <% else %>
+        <p>No image available</p>
+      <% end %>
     </li>
   <% end %>
 </ul>
 
+</div>
+<div style="text-align: center;">
+  <%= image_tag @character.action_image, size: "1000x650" if @character.action_image.attached?  %>
+</div>
+
+
 <div style="text-align: center; margin-top: 20px;">
   <%= link_to 'Back to Characters', characters_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Delete', character_path(@character), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= link_to 'Edit', edit_character_path(@character), class: 'btn btn-warning' %>
 </div>

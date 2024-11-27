@@ -9,13 +9,19 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
-
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="<%= asset_path('infinity_gem_icon.png') %>">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+
+    
+
   </head>
 
-  <body>
+  <body class="<%= "#{controller_name}-#{action_name}" %>" style="<% if controller_name == 'characters' && action_name == 'index' %>background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center fixed; background-size: cover;<% end %>">
     <%# Flash Messages %>
     <% if flash[:notice] %>
       <div class="notice">
