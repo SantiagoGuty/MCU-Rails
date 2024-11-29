@@ -1,4 +1,7 @@
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 200px; border-radius: 10px; margin: 20px 0;">
+
 <h1>Add New Character</h1>
+<div style= "background: black; padding: 30px;">
 <%= form_with(model: @character, local: true, multipart: true) do |form| %>
   <% if @character.errors.any? %>
     <div id="error_explanation">
@@ -15,6 +18,10 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </p>
+  <p>
+  <%= form.label :phrase %>
+  <%= form.text_field :phrase %>
+</p>
   <p>
     <%= form.label :description %>
     <%= form.text_field :description %>
@@ -45,3 +52,5 @@
   </p>
   <%= form.submit %>
 <% end %>
+</div>
+</div>

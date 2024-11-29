@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Hovered over image:", img); // Debug line
         img.style.transition = "all 0.3s ease-in-out";
         img.style.transform = "scale(1.1)";
+        img.style.transform = "border-radius: 10%;"
         img.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.3)";
       });
   

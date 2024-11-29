@@ -1,0 +1,41 @@
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 50px; border-radius: 10px; margin: 0 auto; max-width: 800px;">
+
+  <h1 style="font-family: 'Russo One', sans-serif; text-align: center;">Edit Movie</h1>
+
+  <%= form_with(model: [@character, @movie], local: true) do |form| %>
+    <div style="margin-bottom: 20px;">
+      <%= form.label :name, "Movie Name" %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :year %>
+      <%= form.number_field :year, class: 'form-control' %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :awards %>
+      <%= form.text_field :awards, class: 'form-control' %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :comics %>
+      <%= form.text_field :comics, class: 'form-control' %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :comics_link, "Comics Link" %>
+      <%= form.text_field :comics_link, class: 'form-control' %>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <%= form.label :image, "Movie Image" %>
+      <%= form.file_field :image, class: 'form-control' %>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <%= form.submit "Update Movie", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+</div>

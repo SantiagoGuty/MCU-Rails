@@ -1,10 +1,12 @@
 class CharactersController < ApplicationController
     def index
       @characters = Character.all
+      @random_character = Character.order("RANDOM()").first # Fetch a random character
     end
   
     def show
       @character = Character.find(params[:id])
+      @movies = @character.movies # Fetch movies associated with the character
     end
   
     def new

@@ -4,43 +4,88 @@
 </div>
 
 
-<div style="text-align: center;">
-  <h1 style="font-size: 3em; font-weight: bold;"><%= @character.name %></h1>
-  <i><%= @character.phrase %></i>
+
+
+<div class="side-border-div">
+
+  <div style="height: 100px; text-align: center; ">
+    <h1 style="font-size: 3em; font-weight: bold; font-family:'Russo One', sans-serif;"><%= @character.name %></h1>
+    <i><%= @character.phrase %></i>
+  </div>
+  <div style="padding: 50px;">
+    <h3><%= @character.description %></h3>
+    <h3>Origin: <%= @character.origin %></h3>
+    <h3>Actor: <%= link_to @character.actor, @character.actor_link, style: "color: #b82e8a;" %></h3>
+    <h3>First Comics Appearance: <%= @character.comics_first_apparition %></h3>
+  </div>
+  
 </div>
 
 
-<div style="padding: 50px">
-  <h3><%= @character.description %></h3>
-  <h3>Origin: <%= @character.origin %></h3>
 
 
-  <h3>Actor: <%= link_to @character.actor, @character.actor_link %></h3>
-  <h3>First Comics Appearance: <%= @character.comics_first_apparition %></h3>
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 50px; border-radius: 0px; margin-top: 25px;">
 
-  <h2>Movies</h2>
-<%= link_to 'Add Movie', new_character_movie_path(@character) %>
-<ul>
-  <% @character.movies.each do |movie| %>
-    <li>
-      <%= link_to movie.name, character_movie_path(@character, movie) %>
-      <% if movie.image.attached? %>
-        <%= image_tag url_for(movie.image), alt: movie.name, size: "150x250" %>
-      <% else %>
-        <p>No image available</p>
-      <% end %>
-    </li>
+  <h2 style="color: white; text-align: center;">Movies</h2>
+   
+  <div class="movie-grid">
+  <% if @movies.present? %>
+    <% @movies.each do |movie| %>
+      <div class="movie">
+        <%= link_to character_movie_path(@character, movie) do %>
+          <div>
+            <% if movie.image.attached? %>
+              <%= image_tag url_for(movie.image), alt: movie.name, size: "150x250" %>
+            <% else %>
+              <%= image_tag 'placeholder.png', alt: 'No image available', size: "150x250" %>
+            <% end %>
+            <div class="movie-name">
+              <%= movie.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No movies available for this character.</p>
   <% end %>
-</ul>
-
-</div>
-<div style="text-align: center;">
-  <%= image_tag @character.action_image, size: "1000x650" if @character.action_image.attached?  %>
 </div>
 
 
-<div style="text-align: center; margin-top: 20px;">
-  <%= link_to 'Back to Characters', characters_path, class: 'btn btn-secondary' %>
-  <%= link_to 'Delete', character_path(@character), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  <%= link_to 'Edit', edit_character_path(@character), class: 'btn btn-warning' %>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <div class="add-character-container">
+      <%= link_to new_character_movie_path(@character) do %>
+        <%= image_tag 'plus.png', alt: 'Add Movie', class: 'add-character-icon' %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div style="text-align: center; padding: 20px;">
+  <% if @character.action_image.attached? %>
+    <%= image_tag @character.action_image, size: "1000x650", class: "action-image" %>
+  <% end %>
+  </div>
+
+
+</div>
+
+
+
+<div style="text-align: center; margin-top: 30px; padding: 30px">
+  <!-- Home Icon -->
+  <%= link_to characters_path, class: "icon-link" do %>
+    <%= image_tag 'home_icon.png', alt: 'Back to characters', class: "action-icon" %>
+  <% end %>
+
+  <!-- Edit Icon -->
+  <%= link_to edit_character_path(@character), class: "icon-link" do %>
+    <%= image_tag 'edit_icon.png', alt: 'Edit character', class: "action-icon" %>
+  <% end %>
+
+  <!-- Delete Icon -->
+  <%= link_to character_path(@character), method: :delete, data: { confirm: 'Are you sure?' }, class: "icon-link" do %>
+    <%= image_tag 'delete_icon.png', alt: 'Delete character', class: "action-icon" %>
+  <% end %>
 </div>

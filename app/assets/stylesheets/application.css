@@ -23,13 +23,20 @@
   );
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensures full-height coverage */
+}
+
+
 /* General Body Styling */
 body {
   font-family: "SF Pro Text", sans-serif;
   background: #000; /* Black background */
   color: white;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* Character Grid Layout */
@@ -52,7 +59,7 @@ body {
   overflow: hidden;
   width: 150px;
   height: 250px;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 .character img {
@@ -60,10 +67,12 @@ body {
   height: 100%;
   display: block;
   transition: transform 0.3s ease-in-out;
+  border-radius: 10%;
 }
 
 .character:hover img {
   transform: scale(1.1); /* Zoom effect on hover */
+  border-radius: 10%;
 }
 
 .character-name {
@@ -87,8 +96,9 @@ body {
   padding: 50px;
   background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center;
   background-size: cover;
+  margin-bottom: 0px;
   height: 400px; /* Restrict height */
-  border-radius: 10px; /* Optional: Add rounded corners */
+  border-radius: 0px; /* Optional: Add rounded corners */
   display: flex; /* Optional: Center child elements */
   justify-content: center;
   align-items: center;
@@ -193,4 +203,178 @@ body.characters-index {
   font-family: "Russo One", sans-serif;
   font-weight: 400; /* Normal weight */
   font-style: normal; /* Normal style */
+}
+
+/* Add space between icons */
+.icon-link {
+  margin: 0 15px; /* Horizontal space between icons */
+  display: inline-block; /* Ensure icons are inline */
+}
+
+/* Style the icons */
+.action-icon {
+  width: 50px; /* Set the size */
+  height: 50px;
+  opacity: 0.8; /* Slightly transparent */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition for hover effects */
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.action-icon:hover {
+  transform: scale(1.2); /*Enlarge*/
+  opacity: 1; /* Fully opaque */
+}
+
+/* Style for Action Image */
+.action-image {
+  border: 5px solid transparent; /* Default border is transparent */
+  border-radius: 10px; /* Rounded corners */
+  transition: transform 0.6s ease-in-out, border-color 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth hover animation */
+  opacity: 0.8; /* Slight transparency by default */
+}
+
+/* Hover Effects */
+.action-image:hover {
+  transform: scale(1.03); /* Slightly enlarge on hover */
+  border-color: #b82e8a; /* Add purple border on hover */
+  opacity: 1; /* Fully opaque on hover */
+}
+
+
+
+/* Specific Styles for Home Index Page */
+.home-index {
+  background-color: #f9f9f9; /* Light gray background */
+  color: #000000;
+}
+
+.home-index h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.home-index h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+
+/* Base styles for the div */
+.side-border-div {
+  background-color: black; /* Black background for content */
+  color: white; /* White text for readability */
+  padding: 0px;
+  margin-top: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 10px solid #000000; /* Initial left border */
+  border-right: 10px solid #000000; /* Initial right border */
+  border-radius: 0px; /* Optional: Rounded corners */
+  animation-name: bordes; /* Apply the keyframe animation */
+  animation-duration: 8s; /* Smooth and slow animation */
+  animation-timing-function: linear; /* Ensures continuous smoothness */
+  animation-iteration-count: infinite; /* Runs infinitely */
+}
+
+/* Keyframes for Border Animation */
+@keyframes bordes {
+  0% {
+    border-left: 10px solid #000000; /* Black */
+    border-right: 10px solid #000000; /* Black */
+  }
+  10% {
+    border-left: 10px solid #160216; /* Black */
+    border-right: 10px solid #160216; /* Black */
+  }
+  20% {
+    border-left: 10px solid #2d032d; /* Black */
+    border-right: 10px solid #2d032d; /* Black */
+  }
+  30% {
+    border-left: 10px solid #440544; /* Black */
+    border-right: 10px solid #440544; /* Black */
+  }
+  40% {
+    border-left: 10px solid #5a065a; /* Dark Purple */
+    border-right: 10px solid #5a065a; /* Dark Purple */
+  }
+  50% {
+    border-left: 10px solid #700870; /* Light Purple */
+    border-right: 10px solid #700870; /* Light Purple */
+  }
+  60% {
+    border-left: 10px solid #5a065a; /* Dark Purple */
+    border-right: 10px solid #5a065a; /* Dark Purple */
+  }
+  70% {
+    border-left: 10px solid #440544; /* Back to Black */
+    border-right: 10px solid #440544; /* Back to Black */
+  }
+  80% {
+    border-left: 10px solid #2d032d; /* Black */
+    border-right: 10px solid #2d032d; /* Black */
+  }
+  90% {
+    border-left: 10px solid #160216; /* Black */
+    border-right: 10px solid #160216; /* Black */
+  }
+  90% {
+    border-left: 10px solid #000000; /* Black */
+    border-right: 10px solid #000000; /* Black */
+  }
+}
+
+
+/* Character Grid Layout */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+  gap: 20px; /* Space between grid items */
+  margin: 20px auto; /* Center the grid */
+  max-width: 1200px; /* Limit grid width */
+}
+
+.movie {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie img {
+  width: 250px; /* Set a consistent width */
+  height: 350px; /* Set a consistent height */
+  object-fit: cover; /* Ensures the image fills the container while maintaining proportions */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie:hover img {
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+
+
+.movie-name {
+  font-family: "Russo One", sans-serif;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white;
+  padding: 5px;
+  text-align: center;
 }

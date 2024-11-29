@@ -1,9 +1,39 @@
-<h1><%= @movie.name %></h1>
+<div style= "background: black; padding: 40px;  border-radius: 10px; margin: 0px 0;">
+
+<h1 style="text-align: center; font-family: 'Russo One', sans-serif; font-size: 60px;"><%= @movie.name %></h1>
+
+
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 50px; border-radius: 10px; margin: 0px 0;">
+
+
 <p><strong>Year:</strong> <%= @movie.year %></p>
 <p><strong>Awards:</strong> <%= @movie.awards %></p>
 <p><strong>Comics:</strong> <%= @movie.comics %></p>
-<p><strong>Comics Link:</strong> <%= link_to 'View Comics', @movie.comics_link, target: '_blank' if @movie.comics_link.present? %></p>
+<p><strong>Comics Link:</strong> <%= link_to 'Comic', @movie.comics_link, target: '_blank' if @movie.comics_link.present? %></p>
 
-<div style="margin-top: 20px;">
-  <%= link_to 'Back to Character', character_path(@character), class: 'btn btn-secondary' %>
+<div style="text-align: center;">
+  <% if @movie.image.attached? %>
+    <%= image_tag url_for(@movie.image), alt: @movie.name, size: "250x400" %>
+  <% else %>
+    <h2>No image available for this movie.</h2>
+  <% end %>
+</div>
+
+
+<div style="text-align: center; margin-top: 20px;">
+
+  <%= link_to character_path(@character), class: "icon-link" do %>
+    <%= image_tag 'back_icon.png', alt: 'Back to character', class: "action-icon" %>
+  <% end %>
+
+   <!-- Edit Icon -->
+  <%= link_to edit_character_movie_path(@character, @movie), class: "icon-link" do %>
+    <%= image_tag 'edit_icon.png', alt: 'Edit character', class: "action-icon" %>
+  <% end %>
+  
+</div>
+
+
+
+</div>
 </div>

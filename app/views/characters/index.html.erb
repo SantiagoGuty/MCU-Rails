@@ -1,7 +1,12 @@
 <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
 <div style="text-align: center; margin: 50px;">
-  <h1 class="russo-one-regular">Marvel Cinematic Universe</h1>
+  <h1 style="font-size: 60px;" class="russo-one-regular">Marvel Cinematic Universe</h1>
+  <% if @random_character&.phrase.present? %>
+    <p style="font-style: italic;">
+      <%= @random_character.phrase %> — <%= @random_character.name %>
+    </p>
+  <% end %>
 </div>
 
 

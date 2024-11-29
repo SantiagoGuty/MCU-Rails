@@ -1,4 +1,7 @@
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 200px; border-radius: 10px; margin: 20px 0;">
 <h1>Edit Character</h1>
+
+<div style= "background: black; padding: 30px;">
 <%= form_with(model: @character, local: true, multipart: true) do |form| %>
   <% if @character.errors.any? %>
     <div id="error_explanation">
@@ -49,3 +52,5 @@
   </p>
   <%= form.submit 'Update Character' %>
 <% end %>
+</div>
+</div>

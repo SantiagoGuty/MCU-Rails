@@ -1,2 +1,9 @@
-<h1>Add Movie for <%= @character.name %></h1>
+
+<div style= "background: black; padding: 40px;  border-radius: 10px; margin: 0px 0;">
+
+<h1 style="text-align: center; font-family: 'Russo One', sans-serif; font-size: 40px;">Add Movie for <%= @character.name %></h1>
+
+
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 50px; border-radius: 10px; margin: 0px 0;">
+
 <%= render 'form' %>
