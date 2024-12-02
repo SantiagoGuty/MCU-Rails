@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
     before_action :set_character
-    before_action :set_movie, only: %i[show edit update]
+    before_action :set_movie, only: [:show, :edit, :update, :destroy, :confirm_delete]
+    #before_action :set_movie, only: %i[show edit update]
   
 
 
@@ -27,6 +28,16 @@ class MoviesController < ApplicationController
       else
         render :new
       end
+    end
+
+    def confirm_delete
+      # Render confirmation page
+    end
+  
+    # Destroy action
+    def destroy
+      @movie.destroy
+      redirect_to character_path(@character), notice: 'Movie was successfully deleted.'
     end
 
 

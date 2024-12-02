@@ -28,6 +28,11 @@ class CharactersController < ApplicationController
         redirect_to characters_path, notice: 'Character was successfully deleted.'
     end
 
+    def confirm_delete
+      @character = Character.find(params[:id])
+    end
+    
+
     def edit
         @character = Character.find(params[:id])
     end

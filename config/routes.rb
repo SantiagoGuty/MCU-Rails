@@ -5,8 +5,17 @@ Rails.application.routes.draw do
 
   # Resources for characters and nested movies
   resources :characters do
-    resources :movies
+    resources :movies do
+      member do
+        get :confirm_delete # For movies nested under characters
+      end
+    end
+
+    member do
+      get :confirm_delete # For characters' confirmation delete action
+    end
   end
+  
 
   # Health check route
   get "up" => "rails/health#show", as: :rails_health_check

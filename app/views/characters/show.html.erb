@@ -83,9 +83,9 @@
   <%= link_to edit_character_path(@character), class: "icon-link" do %>
     <%= image_tag 'edit_icon.png', alt: 'Edit character', class: "action-icon" %>
   <% end %>
-
   <!-- Delete Icon -->
-  <%= link_to character_path(@character), method: :delete, data: { confirm: 'Are you sure?' }, class: "icon-link" do %>
+  <%= link_to confirm_delete_character_path(@character), class: "icon-link" do %>
     <%= image_tag 'delete_icon.png', alt: 'Delete character', class: "action-icon" %>
   <% end %>
+
 </div>

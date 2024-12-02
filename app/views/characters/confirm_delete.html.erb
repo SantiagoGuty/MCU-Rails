@@ -1,0 +1,20 @@
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 100px; border-radius: 10px; margin: 20px 0;">
+
+<h1>Are you sure you want to delete <%= @character.name %>?</h1>
+<div style= "background: black; padding: 30px; text-align: center;">
+  <div style="margin-top: 20px;">
+    <%= image_tag @character.profile_image, size: "250x400", alt: @character.name if @character.profile_image.attached? %>
+  </div>
+  <p>The snap can not be undone</p>
+
+  <!-- Confirm Delete Button -->
+  <%= form_with url: character_path(@character), method: :delete do %>
+    <button class="btn btn-danger" style="margin: 20px; padding: 10px 20px; background-color: red; color: white; border: none; cursor: pointer;">
+      Yes, Delete
+    </button>
+  <% end %>
+
+  <!-- Cancel Button -->
+  <%= link_to 'Cancel', character_path(@character), class: 'btn btn-secondary', style: "padding: 10px 20px; text-decoration: none; background-color: gray; color: white; border: none;" %>
+</div>
+</div>

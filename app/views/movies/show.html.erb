@@ -31,6 +31,10 @@
     <%= image_tag 'edit_icon.png', alt: 'Edit character', class: "action-icon" %>
   <% end %>
   
+  <!-- Delete Icon -->
+  <%= link_to confirm_delete_character_movie_path(@character, @movie), class: "icon-link" do %>
+    <%= image_tag 'delete_icon.png', alt: 'Delete character', class: "action-icon" %>
+  <% end %>
 </div>
 
 

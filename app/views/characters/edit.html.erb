@@ -1,4 +1,4 @@
-<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 200px; border-radius: 10px; margin: 20px 0;">
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 100px; border-radius: 10px; margin: 0px;">
 <h1>Edit Character</h1>
 
 <div style= "background: black; padding: 30px;">
@@ -51,6 +51,12 @@
     <%= form.file_field :action_image %>
   </p>
   <%= form.submit 'Update Character' %>
+<% end %>
+</div>
+
+<div style="margin: 20px; text-align: center;">
+<%= link_to character_path(@character), class: "icon-link" do %>
+  <%= image_tag 'back_icon.png', alt: 'Back to character', class: "action-icon" %>
 <% end %>
 </div>
 </div>

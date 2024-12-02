@@ -1,4 +1,4 @@
-<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 200px; border-radius: 10px; margin: 20px 0;">
+<div style="background: url('<%= asset_path("space_background.jpg") %>') no-repeat center center; background-size: cover; padding: 80px; border-radius: 10px; margin: 0px;">
 
 <h1>Add New Character</h1>
 <div style= "background: black; padding: 30px;">
@@ -52,5 +52,11 @@
   </p>
   <%= form.submit %>
 <% end %>
+
 </div>
+
+<div style="margin: 20px; text-align: center;">
+<%= link_to characters_path, class: "icon-link" do %>
+  <%= image_tag 'home_icon.png', alt: 'Back to characters', class: "action-icon" %>
+<% end %>
 </div>
