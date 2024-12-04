@@ -1,0 +1,81 @@
+Release Notes MCU rails
+By Santiago Gutiérrez Morales
+https://github.com/SantiagoGuty/MCU-Rails
+
+
+
+Version 1.2.0 (December 3, 2024)
+
+New Features
+
+    Enhanced Movie Management: Movies now have dedicated detail pages with associated images and information.
+    Edit and delete functionality for movies with confirmation views.
+    Advanced Animations and UI: Smooth border animations on hover for character detail sections.
+    Updated movie and character grids with improved hover effects.
+    Optimized Backend: Enhanced ActiveRecord queries for better performance.
+    Streamlined routes for clarity and efficiency.
+    Miscellaneous: Added placeholder images for characters or movies without attached images.
+    Release notes added for version tracking.
+
+Known Issues
+
+    Performance Lag: Loading large images on slower connections can cause delays.
+    Image Upload Errors: Large file uploads may sometimes fail without detailed error messages
+
+Expected Next Version
+
+    Integration of advanced search functionality for movies and characters.
+    Implementing pagination for better performance with larger datasets.
+    Improved error messages for failed file uploads.
+
+
+
+Version 1.1.0 (November 25, 2024)
+
+New Features
+
+    Delete Confirmation: Confirmation views added for character and movie deletions to prevent accidental actions.
+    Dynamic Quotes: Display random quotes from characters on the characters index page.
+    Improved Navigation:bHome, edit, and delete icons added for easier navigation. 
+    Redesigned character and movie detail pages for improved readability.
+    UI Enhancements: Ensured consistent image sizes in grids for characters and movies.
+    Optimized the grid layout for better compatibility with mobile devices.
+    Bug Fixes: Resolved issues with ActiveStorage for missing images.
+    Fixed styling inconsistencies in various views.
+
+Known Issues
+
+    Redundant CSS: Some styles are repeated across views, leading to maintainability concerns.
+    Navigation Clutter: The addition of new links may overwhelm the UI without further design refinements.
+
+Expected Next Version
+
+    Addition of placeholder images for characters or movies with no images.
+    Enhanced animations for hover effects on character and movie grids.
+    Optimization of database queries for faster load times.
+
+
+
+Version 1.0.0 (November 18, 2024)
+
+New Features:
+
+  Character Management: Add, edit, and delete characters.
+  Upload and display profile and action images for each character.
+  Assign unique phrases (quotes) to characters.
+  Movie Management: Add movies associated with specific characters.
+  Display movies in the character show page with images and details.
+  Frontend Design: Interactive grids for character display.
+  Hover effects on images for a more dynamic UI.
+  Homepage: Basic homepage linking to the characters index.
+
+Known Issues
+
+   Basic Styling: Lacks advanced UI/UX design for mobile responsiveness.
+   Limited Functionality: No dedicated movie detail pages or edit/delete options for movies
+
+Expected Next Version
+
+   Introduction of confirmation views for deletions.
+   Improved design for grids and detail pages.
+   Enhancements to navigation for a smoother user experience.
